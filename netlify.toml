@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm run build"
+  command = "npm run netlify-build"
   publish = "dist"
 
 [[redirects]]
@@ -16,3 +16,4 @@
   NODE_VERSION = "18"
   NPM_VERSION = "9"
   NODE_ENV = "production"
+  CI = "false"
