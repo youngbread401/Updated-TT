@@ -4,7 +4,7 @@ import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: '',
   plugins: [react()],
   define: {
     'process.env': {}
@@ -21,11 +21,6 @@ export default defineConfig({
     sourcemap: true,
     commonjsOptions: {
       transformMixedEsModules: true
-    },
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-      },
     }
   },
   optimizeDeps: {
