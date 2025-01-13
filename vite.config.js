@@ -8,18 +8,25 @@ export default defineConfig({
   resolve: {
     alias: {
       'react-native': 'react-native-web',
-      // Add any other aliases needed for react-native-web packages
+      'react-native-web': 'react-native-web',
+      'react-native-gesture-handler': 'react-native-web/dist/cjs/modules/GestureHandler'
     },
-    extensions: ['.web.js', '.js', '.jsx', '.json']
+    extensions: ['.web.js', '.web.jsx', '.web.ts', '.web.tsx', '.js', '.jsx', '.ts', '.tsx', '.json']
   },
   optimizeDeps: {
     include: ['react-native-web']
   },
   build: {
+    commonjsOptions: {
+      transformMixedEsModules: true
+    },
     rollupOptions: {
-      external: [
-        // Add any external dependencies that should not be bundled
-      ]
+      external: [],
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-native-web']
+        }
+      }
     }
   }
 });
