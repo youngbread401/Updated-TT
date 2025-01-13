@@ -1,14 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from '../App';
-import ErrorBoundary from '../ErrorBoundary';
-import 'react-native-web/dist/cjs/exports/StyleSheet/initialRules.js';
+import { AppRegistry } from 'react-native-web';
+import App from './App';
 
-const root = createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <ErrorBoundary>
-      <App />
-    </ErrorBoundary>
-  </React.StrictMode>
-); 
+// Register the app
+AppRegistry.registerComponent('App', () => App);
+
+// Initialize the app
+AppRegistry.runApplication('App', {
+  rootTag: document.getElementById('root')
+}); 
