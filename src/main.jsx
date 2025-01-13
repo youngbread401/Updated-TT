@@ -1,18 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-
-function App() {
-  return (
-    <div style={{ padding: 20 }}>
-      <h1>D&D Combat Tracker</h1>
-      <p>Test page to verify deployment</p>
-    </div>
-  );
-}
+import App from '../App';
+import ErrorBoundary from '../ErrorBoundary';
+import 'react-native-web/dist/cjs/exports/StyleSheet/initialRules.js';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </React.StrictMode>
 ); 
