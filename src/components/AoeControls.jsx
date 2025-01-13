@@ -10,33 +10,46 @@ const AoeControls = ({ aoeMode, selectedAoe, onTypeChange, onSizeChange, onToggl
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Area of Effect</Text>
-        <TouchableOpacity style={styles.closeButton} onPress={onToggle}>
+        <TouchableOpacity 
+          style={styles.closeButton}
+          onPress={onToggle}
+        >
           <Text style={styles.closeText}>×</Text>
         </TouchableOpacity>
       </View>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.typeScroller}>
+      <ScrollView 
+        horizontal 
+        showsHorizontalScrollIndicator={false}
+        style={styles.typeScroller}
+      >
         {Object.values(AOE_TYPES).map(type => (
           <TouchableOpacity
             key={type}
             style={[
               styles.typeButton,
-              selectedAoe.type === type && styles.typeActive
+              selectedAoe.type === type && styles.activeButton
             ]}
             onPress={() => onTypeChange(type)}
           >
-            <Text style={styles.buttonText}>{type}</Text>
+            <Text style={styles.buttonText}>
+              {type.charAt(0) + type.slice(1).toLowerCase()}
+            </Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.sizeScroller}>
+      <ScrollView 
+        horizontal 
+        showsHorizontalScrollIndicator={false}
+        style={styles.sizeScroller}
+      >
         {AOE_SIZES[selectedAoe.type].map(size => (
           <TouchableOpacity
             key={size}
             style={[
               styles.sizeButton,
-              selectedAoe.size === size && styles.sizeActive
+              selectedAoe.size === size && styles.activeButton
             ]}
             onPress={() => onSizeChange(size)}
           >
@@ -50,21 +63,18 @@ const AoeControls = ({ aoeMode, selectedAoe, onTypeChange, onSizeChange, onToggl
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    bottom: 20,
-    left: 20,
-    right: 20,
     backgroundColor: THEME.primary.dark,
-    borderRadius: 12,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: THEME.border.medium,
+    padding: 15,
+    borderRadius: 8,
+    marginTop: 20,
+    width: '90%',
+    maxWidth: 500,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 15,
   },
   title: {
     color: THEME.text.primary,
@@ -72,29 +82,29 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   closeButton: {
-    padding: 4,
+    padding: 5,
   },
   closeText: {
     color: THEME.text.primary,
     fontSize: 24,
   },
   typeScroller: {
-    marginBottom: 12,
+    marginBottom: 10,
   },
   sizeScroller: {
-    marginBottom: 8,
+    marginBottom: 5,
   },
   typeButton: {
-    backgroundColor: THEME.primary.accent,
-    paddingHorizontal: 16,
+    backgroundColor: THEME.primary.main,
+    paddingHorizontal: 15,
     paddingVertical: 8,
-    borderRadius: 8,
+    borderRadius: 6,
     marginRight: 8,
     borderWidth: 1,
     borderColor: THEME.border.light,
   },
   sizeButton: {
-    backgroundColor: THEME.primary.accent,
+    backgroundColor: THEME.primary.main,
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 6,
@@ -102,11 +112,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: THEME.border.light,
   },
-  typeActive: {
-    backgroundColor: THEME.secondary.main,
-    borderColor: THEME.secondary.light,
-  },
-  sizeActive: {
+  activeButton: {
     backgroundColor: THEME.secondary.main,
     borderColor: THEME.secondary.light,
   },

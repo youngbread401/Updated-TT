@@ -8,25 +8,23 @@ export default defineConfig({
   resolve: {
     alias: {
       'react-native': 'react-native-web',
-      'react-native-web': 'react-native-web',
-      'react-native-gesture-handler': 'react-native-web/dist/cjs/modules/GestureHandler'
     },
-    extensions: ['.web.js', '.web.jsx', '.web.ts', '.web.tsx', '.js', '.jsx', '.ts', '.tsx', '.json']
+    extensions: ['.web.js', '.js', '.jsx', '.json']
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html')
+      }
+    }
   },
   optimizeDeps: {
     include: ['react-native-web']
   },
-  build: {
-    commonjsOptions: {
-      transformMixedEsModules: true
-    },
-    rollupOptions: {
-      external: [],
-      output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-native-web']
-        }
-      }
-    }
+  server: {
+    port: 3000,
+    host: true
   }
 });

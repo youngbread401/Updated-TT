@@ -1,27 +1,36 @@
 export const THEME = {
   primary: {
     main: '#1a1a1a',
-    light: '#2a2a2a',
     dark: '#121212',
-    accent: '#333333'
+    light: '#2a2a2a',
   },
   secondary: {
-    main: '#6d28d9',
-    light: '#7c3aed',
-    dark: '#5b21b6'
+    main: '#3498db',
+    dark: '#2980b9',
+    light: '#5dade2',
   },
   accent: {
-    red: '#dc2626',
-    green: '#16a34a',
-    blue: '#2563eb',
-    purple: '#7e22ce'
+    red: '#e74c3c',
+    green: '#2ecc71',
+    yellow: '#f1c40f',
+    purple: '#9b59b6',
+    cyan: '#1abc9c',
+    orange: '#e67e22',
   },
   text: {
     primary: '#ffffff',
-    secondary: '#a3a3a3'
+    secondary: '#b3b3b3',
+    disabled: '#666666',
   },
   border: {
     light: '#404040',
-    medium: '#525252'
+    medium: '#333333',
+    dark: '#262626',
+  },
+  status: {
+    success: '#27ae60',
+    warning: '#f39c12',
+    error: '#c0392b',
+    info: '#2980b9',
   }
 }; 
