@@ -1,40 +1,28 @@
-import React, { useState, useCallback, useEffect, useRef, memo, useMemo } from 'react';
-import { 
-  StyleSheet, 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  Pressable,
-  TextInput, 
-  ScrollView, 
-  Alert, 
-  Modal,
-  KeyboardAvoidingView,
-  Platform,
-  SafeAreaView,
-  ActivityIndicator,
-  Keyboard,
-  Vibration,
-  Dimensions,
-  Image
-} from 'react-native';
-import { 
-  ref, 
-  onValue, 
-  set, 
-  get, 
-  off,
-  update,
-  remove
-} from 'firebase/database';
-import { debounce } from 'lodash';
-import { database } from './firebase';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 import { THEME } from './theme';
-import AoeControls from './components/AoeControls';
-import { AOE_TYPES, AOE_SIZES, calculateAffectedCells } from './aoeConstants';
 
 const App = () => {
-  // ... all your component code ...
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>D&D Combat Grid</Text>
+    </View>
+  );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: THEME.primary.main,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '100vh',
+  },
+  text: {
+    color: THEME.text.primary,
+    fontSize: 24,
+    fontWeight: 'bold',
+  }
+});
 
 export default App; 
