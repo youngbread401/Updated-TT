@@ -1,12 +1,9 @@
 {
   "name": "dndgrid",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "EXPO_WEB_DEBUG=false expo start --web",
+    "start": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -28,10 +25,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@expo/webpack-config": "^18.0.1",
-    "@vitejs/plugin-react": "^4.3.4",
-    "file-loader": "^6.2.0",
-    "vite": "^6.0.7"
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.0.8"
   },
   "private": true
 }
